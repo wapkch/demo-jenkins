@@ -7,5 +7,13 @@ pipeline {
             	git branch: 'main', credentialsId: '10917354-2e7b-4e22-baa8-77488aba3bbc', url: 'https://github.com/wapkch/demo-jenkins.git'
             }
         }
+
+        stage('Build') {
+            steps {
+                // 使用Maven构建项目
+                sh 'mvn clean compile'
+                echo '构建完成'
+            }
+        }
    }
 }
